@@ -15,7 +15,7 @@ const WEBSITE_GENERATED_PATH = path.join(REPO_ROOT, 'website/playground/new-samp
 generateTestSamplesTask();
 
 const SERVER_ROOT = path.normalize(path.join(REPO_ROOT, '../'));
-createSimpleServer(SERVER_ROOT, 8080);
+createSimpleServer(SERVER_ROOT, 9000);
 createSimpleServer(SERVER_ROOT, 8088);
 
 function generateTestSamplesTask() {
@@ -164,7 +164,7 @@ function createSimpleServer(rootDir: string, port: number) {
 			const server = http.createServer((request, response) => {
 				return staticServer.handle(request, response);
 			});
-			server.listen(port, '127.0.0.1', () => {
+			server.listen(port, '0.0.0.0', () => {
 				console.log(`Running at http://127.0.0.1:${port}`);
 			});
 		});
